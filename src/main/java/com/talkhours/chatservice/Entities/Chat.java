@@ -11,6 +11,8 @@ import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.talkhours.chatservice.Enums.ChatType;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,7 +24,7 @@ import lombok.ToString;
 public class Chat {
     @Id
     private String id;
-    
+    private ChatType type;
     private Date date=new Date();
 
     @DBRef
