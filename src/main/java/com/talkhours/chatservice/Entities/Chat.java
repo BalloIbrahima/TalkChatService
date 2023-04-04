@@ -1,8 +1,14 @@
 package com.talkhours.chatservice.Entities;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
@@ -18,4 +24,11 @@ public class Chat {
     private String id;
     
     private Date date=new Date();
+
+    @DBRef
+    List<Message> messages=new ArrayList<>();
+
+    @Transient Set<Utilisateur> utilisateurs=new HashSet<>();
+
+    Set<Long> idUtilisateurs=new HashSet<>();
 }
